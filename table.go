@@ -433,7 +433,9 @@ func (t *Table) Rich(row []string, colors []Colors) {
 
 		if len(colors) > i {
 			color := colors[i]
-			out[0] = format(out[0], color)
+			for idx := range out {
+				out[idx] = format(out[idx], color)
+			}
 		}
 
 		// Append broken words
